@@ -60,7 +60,10 @@ function singleRound (playerSelection, computerSelection) {
 function game () {
     
     for (let i = 0; i < 5; i++) {
-        let playerInput = prompt('Choose your weapon');
+        let playerInput = prompt('Choose: Paper, Rock or Scissors');
+        if (playerInput != 'paper' && playerInput != 'rock' && playerInput != 'scissors' ) {
+            i--;
+        }
         console.log(singleRound(playerInput, computerPlay()));
         console.log(`Player ${playerScore} : ${computerScore} Computer`);
         let gameNumber = i + 1;
