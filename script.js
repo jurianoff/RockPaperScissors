@@ -57,7 +57,7 @@ function singleRound (playerSelection, computerSelection) {
     }
 }
 
-function game () {
+/*function game () {
     
     for (let i = 0; i < 5; i++) {
         let playerInput = prompt('Choose: Paper, Rock or Scissors');
@@ -70,5 +70,42 @@ function game () {
         console.log(`Game number ${gameNumber}`);
     }
 }
+*/
+const results = document.querySelector('.results');
+const score = document.createElement('div');
+const winner = document.createElement('div');
+results.appendChild(score);
 
-game();
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const scissorsButton = document.querySelector('#scissors');
+
+function scoreAndWinner () {
+    score.textContent = `Player ${playerScore} : ${computerScore} Computer`;
+    if (playerScore === 5) {
+        winner.textContent = 'Player WINS!';
+        results.appendChild(winner);
+    } else if (computerScore === 5) {
+        winner.textContent = 'Computer WINS!';
+        results.appendChild(winner);
+    }
+}
+
+rockButton.addEventListener('click', () => {
+    singleRound('rock', computerPlay());
+    scoreAndWinner();
+});
+
+paperButton.addEventListener('click', () => {
+    singleRound('paper', computerPlay())
+    scoreAndWinner();
+})
+
+scissorsButton.addEventListener('click', () => {
+    singleRound('scissors', computerPlay())
+    scoreAndWinner();
+})
+
+
+
+
