@@ -82,29 +82,38 @@ const scissorsButton = document.querySelector('#scissors');
 
 function scoreAndWinner () {
     score.textContent = `Player ${playerScore} : ${computerScore} Computer`;
-    if (playerScore === 5) {
-        winner.textContent = 'Player WINS!';
+    if (playerScore === 5 || computerScore === 5) {
+        if (playerScore === 5) {
+            winner.textContent = 'Player WINS!';
+        } else if (computerScore === 5) {
+            winner.textContent = 'Computer WINS!';
+        }
         results.appendChild(winner);
-    } else if (computerScore === 5) {
-        winner.textContent = 'Computer WINS!';
-        results.appendChild(winner);
+        rockButton.removeEventListener('click', chooseRock);
+        paperButton.removeEventListener('click', choosePaper);
+        scissorsButton.removeEventListener('click', chooseScissors);
     }
 }
 
-rockButton.addEventListener('click', () => {
+function chooseRock () {
     singleRound('rock', computerPlay());
     scoreAndWinner();
-});
+}
 
-paperButton.addEventListener('click', () => {
+function choosePaper () {
     singleRound('paper', computerPlay())
     scoreAndWinner();
-})
+}
 
-scissorsButton.addEventListener('click', () => {
+function chooseScissors () {
     singleRound('scissors', computerPlay())
     scoreAndWinner();
-})
+}
+rockButton.addEventListener('click', chooseRock);
+
+paperButton.addEventListener('click', choosePaper);
+
+scissorsButton.addEventListener('click', chooseScissors);
 
 
 
