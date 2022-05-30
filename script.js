@@ -79,6 +79,18 @@ results.appendChild(score);
 const rockButton = document.querySelector('#rock');
 const paperButton = document.querySelector('#paper');
 const scissorsButton = document.querySelector('#scissors');
+const resetButton = document.createElement('button');
+resetButton.textContent = 'RESET';
+
+resetButton.addEventListener('click', () => {
+    playerScore = 0;
+    computerScore = 0;
+    score.textContent = `Player ${playerScore} : ${computerScore} Computer`;
+    rockButton.addEventListener('click', chooseRock);
+    paperButton.addEventListener('click', choosePaper);
+    scissorsButton.addEventListener('click', chooseScissors);
+    results.removeChild(winner);
+})
 
 function scoreAndWinner () {
     score.textContent = `Player ${playerScore} : ${computerScore} Computer`;
@@ -92,6 +104,7 @@ function scoreAndWinner () {
         rockButton.removeEventListener('click', chooseRock);
         paperButton.removeEventListener('click', choosePaper);
         scissorsButton.removeEventListener('click', chooseScissors);
+        results.appendChild(resetButton);
     }
 }
 
