@@ -1,0 +1,53 @@
+* {
+    background-color: rgb(65, 70, 75);
+    
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 35px;
+}
+
+div {
+    color: aliceblue;
+}
+
+h1,
+h3 {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color:bisque;
+    flex: auto;
+    text-shadow: 5px 5px 10px black;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h3 {
+    font-family: "Lucida Console", monospace;
+    font-size: 20px;
+}
+
+.buttons {
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex: auto;
+    gap: 15px;
+}
+
+button {
+    height: 250px;
+    width: 250px;
+    display: flex;
+    flex: none;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
