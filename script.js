@@ -1,15 +1,19 @@
 const results = document.querySelector('.results');
 const score = document.createElement('div');
+score.classList.add('results');
 const winner = document.createElement('div');
+winner.classList.add('results');
 results.appendChild(score);
 
 const rockButton = document.querySelector('#rock');
 const paperButton = document.querySelector('#paper');
 const scissorsButton = document.querySelector('#scissors');
 const resetButton = document.createElement('button');
+resetButton.classList.add('reset');
 resetButton.textContent = 'RESET';
 
 const selectionPreviev = document.createElement('div');
+selectionPreviev.classList.add('results');
 results.appendChild(selectionPreviev);
 
 function computerPlay () {
@@ -81,6 +85,7 @@ resetButton.addEventListener('click', () => {
     results.removeChild(winner);
     results.removeChild(resetButton);
     selectionPreviev.textContent = '';
+    score.textContent = '';
 })
 
 function scoreAndWinner () {
