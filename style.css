@@ -45,6 +45,12 @@ button {
     width: 250px;
     display: flex;
     flex: none;
+    border: 1px solid bisque;
+    border-radius: 10px;
+}
+
+button:hover {
+    border-color:orangered;
 }
 
 img {
